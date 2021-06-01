@@ -4,14 +4,16 @@ import numpy as np
 from sklearn.utils import shuffle
 from sklearn.cluster import KMeans, AgglomerativeClustering, DBSCAN, SpectralClustering, OPTICS
 
-hc_enc = pd.read_csv('assets/HC_encoding.csv',na_values='inf',header=None)
-scz_enc = pd.read_csv('assets/SCZ_encoding.csv',na_values='inf',header=None)
-# enc = hc_enc.conca
-# hc_enc = hc_enc.dropna(axis=1)
-# scz_enc = scz_enc.dropna(axis=1)
+# you can switch between the following two blocks for two task conditions
+# hc_enc = pd.read_csv('assets/HC_encoding.csv',na_values='inf',header=None)
+# scz_enc = pd.read_csv('assets/SCZ_encoding.csv',na_values='inf',header=None)
+# final = pd.concat([hc_enc,scz_enc])
+# final = shuffle(final)
+
+hc_enc = pd.read_csv('assets/HC_retrieval.csv',na_values='inf',header=None)
+scz_enc = pd.read_csv('assets/SCZ_retrieval.csv',na_values='inf',header=None)
 final = pd.concat([hc_enc,scz_enc])
 final = shuffle(final)
-
 
 X_train = final.iloc[:,1:]
 y_true = final.iloc[:,0]
