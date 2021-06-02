@@ -8,7 +8,7 @@ modified by:
     Asadur Chowdury
     
 """
-
+"""this is for future exploration purposes"""
 
 def autoencoder(dims, act='relu', init='glorot_uniform'):
     """

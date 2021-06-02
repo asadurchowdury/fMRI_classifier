@@ -22,13 +22,13 @@ y_true = final.iloc[:,0]
 # kmeans = AgglomerativeClustering(n_clusters=2, compute_distances=True,memory='./assets/',linkage='ward') 
 # kmeans = KMeans(n_clusters=2,verbose=0,init='k-means++',tol=0.001,algorithm='full')
 # kmeans = DBSCAN(eps=2,min_samples=2,metric='yule',n_jobs=-1,algorithm='brute')
-kmeans = SpectralClustering(n_clusters=2)
-kmeans.fit_predict(X_train)
+spectral = SpectralClustering(n_clusters=2)
+spectral.fit_predict(X_train)
 
-preds = kmeans.labels_
+preds = spectral.labels_
 
 
 from sklearn.metrics import f1_score, accuracy_score
-print(kmeans.labels_)
+print(spectral.labels_)
 print(f1_score(y_true,preds))
 print(accuracy_score(y_true,preds))
